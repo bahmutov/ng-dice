@@ -11,6 +11,8 @@ ngDice({
     _: __dirname + '/../node_modules/lodash/index.js'
   },
   tests: function (getVersion) {
+    it('is a dummy unit test', function () {});
+
     it('has _ version', function () {
       var version = getVersion();
       la(version, 'has version');
