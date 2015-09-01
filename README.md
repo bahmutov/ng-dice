@@ -2,7 +2,7 @@
 
 > AngularJS (NG) unit testing with dependency injection (DI) and code extraction (CE) tricks
 
-Stay tuned
+Stay tuned for docs
 
 [![NPM][ng-dice-icon] ][ng-dice-url]
 

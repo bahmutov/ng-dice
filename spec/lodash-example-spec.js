@@ -7,6 +7,9 @@ ngDice({
   name: 'lodash example',
   file: filename,
   extract: 'var lodashVersion',
+  load: {
+    _: __dirname + '/../node_modules/lodash/index.js'
+  },
   tests: function (getVersion) {
     it('has _ version', function () {
       var version = getVersion();
