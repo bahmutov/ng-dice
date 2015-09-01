@@ -6,5 +6,8 @@ var ngDice = require('..');
 la(check.fn(ngDice), 'missing ng-dice function');
 
 ngDice({
-  name: 'factory example using ng-dice'
+  name: 'factory example using ng-dice',
+  tests: function () {
+    it('is a dummy test', function () {});
+  }
 });
