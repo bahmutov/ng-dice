@@ -29,6 +29,12 @@ ngDice({
       la(fn.name === 'bar');
     });
 
+    it('returned function works', function () {
+      var fn = getBar();
+      var result = fn();
+      la(result === 'bar', 'returns string "bar"', result);
+    });
+
     it('has the factory', function () {
       var injector = angular.injector(['FactoryExample']);
       la(injector.has('factory-example'), 'injector has factory-example');
@@ -37,7 +43,7 @@ ngDice({
     it('can grab the factory', function () {
       var injector = angular.injector(['FactoryExample']);
       var f = injector.get('factory-example');
-      la(check.object(f), 'factory is a object');
+      la(check.object(f), 'factory is an object');
       la(check.fn(f.foo), 'has foo method');
       var result = f.foo();
       la(result === 'bar', 'returns "bar"', result);
