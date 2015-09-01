@@ -5,6 +5,7 @@ module.exports = function(config) {
       '../node_modules/angular/angular.js',
       '../node_modules/angular-mocks/angular-mocks.js',
       '../node_modules/ng-describe/dist/ng-describe.js',
+      '../spec/*.js',
       '*.js'
     ],
     port: 9876,
