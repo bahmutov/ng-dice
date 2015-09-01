@@ -12,7 +12,7 @@ module.exports = function(config) {
       '../spec/*-spec.js'
     ],
     port: 9876,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     singleRun: true
   });
 };

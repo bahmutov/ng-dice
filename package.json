@@ -40,8 +40,10 @@
     "karma": "0.13.9",
     "karma-chrome-launcher": "0.2.0",
     "karma-mocha": "0.2.0",
+    "karma-phantomjs-launcher": "0.2.1",
     "mocha": "2.3.0",
     "ng-describe": "1.2.4",
+    "phantomjs": "1.9.18",
     "pre-git": "0.6.2"
   },
   "pre-commit": [
@@ -49,6 +51,7 @@
     "npm version"
   ],
   "dependencies": {
+    "benv": "1.1.0",
     "check-more-types": "1.9.1",
     "describe-it": "1.4.0",
     "lazy-ass": "0.6.0"
