@@ -26,8 +26,21 @@ ngDice({
     it('returns function with name bar', function () {
       var fn = getBar();
       la(check.fn(fn), 'returns a function', fn);
-      console.log('returned function', fn.toString());
       la(fn.name === 'bar');
+    });
+
+    it('has the factory', function () {
+      var injector = angular.injector(['FactoryExample']);
+      la(injector.has('factory-example'), 'injector has factory-example');
+    });
+
+    it('can grab the factory', function () {
+      var injector = angular.injector(['FactoryExample']);
+      var f = injector.get('factory-example');
+      la(check.object(f), 'factory is a object');
+      la(check.fn(f.foo), 'has foo method');
+      var result = f.foo();
+      la(result === 'bar', 'returns "bar"', result);
     });
   }
 });
