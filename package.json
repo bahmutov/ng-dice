@@ -4,7 +4,9 @@
   "description": "AngularJS (NG) unit testing with dependency injection (DI) and code extraction (CE) tricks",
   "main": "ng-dice.js",
   "scripts": {
-    "test": "karma start test/karma.conf.js"
+    "test": "npm run mocha && npm run karma",
+    "karma": "karma start test/karma.conf.js",
+    "mocha": "mocha spec/*-spec.js"
   },
   "repository": {
     "type": "git",
@@ -45,5 +47,10 @@
   "pre-commit": [
     "npm test",
     "npm version"
-  ]
+  ],
+  "dependencies": {
+    "check-more-types": "1.9.1",
+    "describe-it": "1.4.0",
+    "lazy-ass": "0.6.0"
+  }
 }

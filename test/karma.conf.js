@@ -8,6 +8,9 @@ module.exports = function(config) {
       '../spec/*.js',
       '*.js'
     ],
+    exclude: [
+      '../spec/*-spec.js'
+    ],
     port: 9876,
     browsers: ['Chrome'],
     singleRun: true
