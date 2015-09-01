@@ -2,6 +2,7 @@ require('lazy-ass');
 var check = require('check-more-types');
 var benv = require('benv');
 var log = require('debug')('dice');
+var describeIt = require('describe-it');
 
 function ngDice(options) {
   options = options || {};
@@ -19,10 +20,10 @@ function ngDice(options) {
 
     if (options.file && options.extract) {
       log('extracting', options.extract, 'from', options.file);
-    }
+      la(check.fn(options.tests), 'missing tests callback');
 
-    if (check.fn(options.tests)) {
-      options.tests();
+      var useBeforeEach = true;
+      describeIt(options.file, options.extract, useBeforeEach, options.tests);
     }
 
     afterEach(function destroySyntheticBrowser() {
