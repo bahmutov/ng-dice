@@ -5,7 +5,7 @@
   "main": "ng-dice.js",
   "scripts": {
     "test": "npm run mocha && npm run karma",
-    "karma": "karma start test/karma.conf.js",
+    "karma": "karma start karma-test/karma.conf.js",
     "mocha": "mocha spec/*-spec.js"
   },
   "repository": {
