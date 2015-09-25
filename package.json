@@ -1,6 +1,6 @@
 {
   "name": "ng-dice",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AngularJS (NG) unit testing with dependency injection (DI) and code extraction (CE) tricks",
   "main": "ng-dice.js",
   "scripts": {

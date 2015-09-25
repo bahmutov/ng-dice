@@ -2,7 +2,52 @@
 
 > AngularJS (NG) unit testing with dependency injection (DI) and code extraction (CE) tricks
 
-Stay tuned for docs
+Imagine you want to unit test your Angular code, but with two conditions
+
+1. Run unit tests directly from Node without using a browser (too slow and flaky)
+2. Test code fragments that are *not publicly exported*, like functions inside a closure
+
+Here is an example: how can we unit test the function `nextName()` in the following application?
+
+```js
+// app.js
+(function () {
+  function nextName() {
+    return 'World';
+  }
+  angular.module('HelloApp', [])
+    .controller('HelloController', function ($scope) {
+      $scope.names = ['John', 'Mary'];
+      $scope.addName = function () {
+        $scope.names.push(nextName());
+      };
+    });
+}());
+```
+
+We can not directly access the function, right? We can using `ng-dice`!
+
+```js
+var ngDice = require('ng-dice');
+ngDice({
+  name: 'app',
+  file: __dirname + '/app.js',
+  extract: 'nextName()',
+  tests: function (codeExtract) {
+    it('returns next name', function () {
+      var nextName = codeExtract();
+      console.assert(nextName() === 'World');
+    });
+  }
+});
+```
+
+We provide the path to the file we want to test ('app.js'), and the function signature to *extract* - `nextName()`,
+and the `ngDice` will return a reference to this function when we call `codeExtract()` function.
+
+For more information, see 
+[Unit testing Angular like a boss](http://glebbahmutov.com/blog/unit-testing-angular-from-node-like-a-boss/)
+and the [slides](http://slides.com/bahmutov/bend-the-rules).
 
 [![NPM][ng-dice-icon] ][ng-dice-url]
 
